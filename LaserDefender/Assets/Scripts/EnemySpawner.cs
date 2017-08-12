@@ -8,8 +8,11 @@ public class EnemySpawner : MonoBehaviour
 
 	void Start()
     {
-	    GameObject enemyObj = Instantiate(m_enemyPrefab , transform.position , Quaternion.identity) as GameObject;	
-        enemyObj.transform.parent = transform;
+        foreach(Transform child in transform)
+        {
+            GameObject enemyObj = Instantiate(m_enemyPrefab , child.transform.position , Quaternion.identity) as GameObject;	
+            enemyObj.transform.parent = child;
+        }
 	}
 	
 	void Update()
