@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 60721084054707680}
   - component: {fileID: 50431724180447600}
   - component: {fileID: 212862145511604414}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: PF_PlayerBullet
   m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86bea7a7d4ee5634797e625c0ce9f60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 5
+  m_moveSpeed: 50
 --- !u!212 &212862145511604414
 SpriteRenderer:
   m_ObjectHideFlags: 1

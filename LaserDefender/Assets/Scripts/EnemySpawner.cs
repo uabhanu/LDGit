@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     bool m_movingRight;
     float m_xMax , m_xMin;
 
-    [SerializeField] float m_height , m_moveSpeed , m_width;
+    [SerializeField] float m_height , m_moveSpeed , m_spawnDelay , m_width;
 
     [SerializeField] GameObject m_enemyPrefab;
 
@@ -19,17 +19,8 @@ public class EnemySpawner : MonoBehaviour
         m_xMax = rightBoundary.x;
         m_xMin = leftBoundary.x;
 
-        foreach(Transform child in transform)
-        {
-            GameObject enemyObj = Instantiate(m_enemyPrefab , child.transform.position , Quaternion.identity) as GameObject;	
-            enemyObj.transform.parent = child;
-        }
+        SpawnUntilFull();
 	}
-
-    public void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position , new Vector3(m_width , m_height));
-    }
 
     void Update()
     {
@@ -58,6 +49,54 @@ public class EnemySpawner : MonoBehaviour
         else if(rightEdgeOfFormation > m_xMax)
         {
             m_movingRight = false;
+        }
+
+        if(AllEnemiesDead())
+        {
+            SpawnUntilFull();
+        }
+    }
+
+    bool AllEnemiesDead()
+    {
+        foreach(Transform childPositionGObj in transform)
+        {
+            if(childPositionGObj.childCount > 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    Transform NewVacancy()
+    {
+        foreach(Transform freePosition in transform)
+        {
+            if(freePosition.childCount == 0)
+            {
+                return freePosition;
+            }
+        }
+
+        return null;
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position , new Vector3(m_width , m_height));
+    }
+
+    void SpawnUntilFull()
+    {
+        Transform newVacancy = NewVacancy();
+
+        if(newVacancy)
+        {
+            GameObject enemyObj = Instantiate(m_enemyPrefab , newVacancy.transform.position , Quaternion.identity) as GameObject;	
+            enemyObj.transform.parent = newVacancy;
+            Invoke("SpawnUntilFull" , m_spawnDelay);
         }
     }
 }
