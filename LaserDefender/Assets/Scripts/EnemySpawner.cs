@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
         foreach(Transform child in transform)
         {
-            GameObject enemyObj = Instantiate(m_enemyPrefab , new Vector3(child.transform.position.x , child.transform.position.y + 3f) , Quaternion.identity) as GameObject;	
+            GameObject enemyObj = Instantiate(m_enemyPrefab , child.transform.position , Quaternion.identity) as GameObject;	
             enemyObj.transform.parent = child;
         }
 	}
@@ -50,9 +50,14 @@ public class EnemySpawner : MonoBehaviour
         float leftEdgeOfFormation = transform.position.x - 0.5f * m_width;
         float rightEdgeOfFormation = transform.position.x + 0.5f * m_width;
 
-        if(leftEdgeOfFormation < m_xMin || rightEdgeOfFormation > m_xMax)
+        if(leftEdgeOfFormation < m_xMin)
         {
-            m_movingRight = !m_movingRight;
+            m_movingRight = true;
+        }
+
+        else if(rightEdgeOfFormation > m_xMax)
+        {
+            m_movingRight = false;
         }
     }
 }

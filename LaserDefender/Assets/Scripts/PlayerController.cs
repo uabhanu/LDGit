@@ -6,7 +6,18 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float m_moveSpeed , m_offset;
 
+    [SerializeField] GameObject m_bulletPrefab;
+
+    [SerializeField] int m_maxBullets;
+
+    public static int m_bulletsCount;
+
     float m_xMax , m_xMin;
+
+    void Reset()
+    {
+        m_maxBullets = 1;    
+    }
 
     void Start()
     {
@@ -22,6 +33,15 @@ public class PlayerController : MonoBehaviour
 		if(Time.timeScale == 0)
         {
             return;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if(m_bulletsCount < m_maxBullets)
+            {
+                Instantiate(m_bulletPrefab , transform.position , Quaternion.identity);
+                m_bulletsCount++;
+            }
         }
 
         if(Input.GetKey(KeyCode.LeftArrow))
