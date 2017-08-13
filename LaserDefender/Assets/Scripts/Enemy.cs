@@ -8,9 +8,13 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] GameObject m_bulletPrefab;
 
+    Animator m_arriveAnim;
+
 	void Start()
     {
-		StartCoroutine("FireBulletsRoutine");
+        m_arriveAnim = GetComponent<Animator>();
+        m_arriveAnim.SetBool("Idle" , true);
+        StartCoroutine("FireBulletsRoutine");
 	}
 	
     IEnumerator FireBulletsRoutine()
