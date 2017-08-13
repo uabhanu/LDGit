@@ -20,10 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4412974484489186}
   - component: {fileID: 114806526694091756}
+  - component: {fileID: 114507914668469046}
   - component: {fileID: 60721084054707680}
   - component: {fileID: 50431724180447600}
   - component: {fileID: 212862145511604414}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PF_PlayerBullet
   m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
@@ -104,6 +105,17 @@ PolygonCollider2D:
       - {x: 0.1015625, y: 0.03515625}
       - {x: 0.09765625, y: 0.1015625}
       - {x: 0.10546875, y: 0.1328125}
+--- !u!114 &114507914668469046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1299320381846362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060dbb5256b028740b251fc741c11fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114806526694091756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86bea7a7d4ee5634797e625c0ce9f60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 20
+  m_moveSpeed: 5
 --- !u!212 &212862145511604414
 SpriteRenderer:
   m_ObjectHideFlags: 1

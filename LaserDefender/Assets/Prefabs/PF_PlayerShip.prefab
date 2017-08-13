@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 60915946102630068}
   - component: {fileID: 50514427123137096}
   - component: {fileID: 212817780971384178}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PF_PlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078b76ae047c3e8498342fde299c8dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_bulletSpawnOffset: 0.75
   m_moveSpeed: 10
   m_offset: 0.5
   m_bulletPrefab: {fileID: 1299320381846362, guid: e6ae4ea2b52c1a046b2f61362e5f1ac0,

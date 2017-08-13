@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float m_moveSpeed , m_offset;
+    [SerializeField] float m_bulletSpawnOffset , m_moveSpeed , m_offset;
 
     [SerializeField] GameObject m_bulletPrefab;
 
@@ -16,7 +16,10 @@ public class PlayerController : MonoBehaviour
 
     void Reset()
     {
+        m_bulletSpawnOffset = 0.75f;
         m_maxBullets = 1;    
+        m_moveSpeed = 10f;
+        m_offset = 0.5f;
     }
 
     void Start()
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
         {
             if(m_bulletsCount < m_maxBullets)
             {
-                Instantiate(m_bulletPrefab , transform.position , Quaternion.identity);
+                Instantiate(m_bulletPrefab , new Vector3(transform.position.x , transform.position.y + m_bulletSpawnOffset) , Quaternion.identity);
                 m_bulletsCount++;
             }
         }

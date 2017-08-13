@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 60763180783150976}
   - component: {fileID: 50828953634750962}
   - component: {fileID: 212215986795569918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PF_EnemyShip01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,6 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592a8af9b0010ec4bacbad5fdd3293a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_bulletSpawnOffset: 0.8
+  m_fireInterval01: 1
+  m_fireInterval02: 4
+  m_bulletPrefab: {fileID: 1949139066918822, guid: ad5908c214305bc4fbe8271994d6e364,
+    type: 2}
 --- !u!212 &212215986795569918
 SpriteRenderer:
   m_ObjectHideFlags: 1
