@@ -8,12 +8,16 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] GameObject m_bulletPrefab;
 
+    [SerializeField] int m_scoreValue;
+
     Animator m_arriveAnim;
+    ScoreManager m_scoreManager;
 
 	void Start()
     {
         m_arriveAnim = GetComponent<Animator>();
         m_arriveAnim.SetBool("Idle" , true);
+        m_scoreManager = FindObjectOfType<ScoreManager>();
         StartCoroutine("FireBulletsRoutine");
 	}
 	
@@ -33,6 +37,7 @@ public class Enemy : MonoBehaviour
     {
         if(tri2D.gameObject.tag.Equals("PlayerBullet"))
         {
+            m_scoreManager.Score(m_scoreValue);
             Destroy(gameObject);
         }
     }

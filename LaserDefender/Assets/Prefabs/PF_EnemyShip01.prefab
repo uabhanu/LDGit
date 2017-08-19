@@ -154,6 +154,7 @@ MonoBehaviour:
   m_fireInterval02: 4
   m_bulletPrefab: {fileID: 1949139066918822, guid: ad5908c214305bc4fbe8271994d6e364,
     type: 2}
+  m_scoreValue: 50
 --- !u!212 &212215986795569918
 SpriteRenderer:
   m_ObjectHideFlags: 1
