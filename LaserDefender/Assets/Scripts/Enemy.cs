@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] int m_scoreValue;
 
+    public static int m_enemiesDestroyed = 0;
+
     Animator m_arriveAnim;
     ScoreManager m_scoreManager;
 
@@ -37,6 +39,7 @@ public class Enemy : MonoBehaviour
     {
         if(tri2D.gameObject.tag.Equals("PlayerBullet"))
         {
+            m_enemiesDestroyed++;
             m_scoreManager.Score(m_scoreValue);
             Destroy(gameObject);
         }

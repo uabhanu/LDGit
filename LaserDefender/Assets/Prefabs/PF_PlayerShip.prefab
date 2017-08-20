@@ -157,6 +157,7 @@ MonoBehaviour:
   m_offset: 0.5
   m_bulletPrefab: {fileID: 1299320381846362, guid: e6ae4ea2b52c1a046b2f61362e5f1ac0,
     type: 2}
+  m_enemiesToBeDestroyed: 5
   m_maxBullets: 1
 --- !u!212 &212817780971384178
 SpriteRenderer:
@@ -188,7 +189,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1162740729
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4d73e7a8aefca874aaf44f7891b8c7d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
